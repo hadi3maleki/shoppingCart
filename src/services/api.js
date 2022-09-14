@@ -5,4 +5,4 @@ const getProducts = async ()=>{
     return response.data;
 }
 
-expect {getProducts}
+export {getProducts}
