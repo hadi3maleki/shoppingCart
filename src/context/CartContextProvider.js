@@ -56,7 +56,9 @@ const cartReducer = (state, action)=>{
                 total: 0,
                 checkOut: false
             }
-            
+         
+        default:
+            return state    
     } 
 }
 
