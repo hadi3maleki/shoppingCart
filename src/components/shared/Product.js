@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { shorten, isInCart } from '../../helper/functions';
+import { shorten, isInCart, quantityCount } from '../../helper/functions';
 
 import { CartContext } from '../../context/CartContextProvider';
 
@@ -20,6 +20,11 @@ const Product = ({productData}) => {
                         :
                         <button onClick={()=>dispatch({type:"ADD_ITEM", payload: productData})}> Add to cart </button>
                     }
+                    
+                    {quantityCount(state, productData.id) > 1 && <button onClick={()=>dispatch({type:"DECREASE", payload: productData})}>-</button>}
+                    {quantityCount(state, productData.id) === 1 && <button onClick={()=>dispatch({type:"REMOVE_ITEM", payload: productData})}>REMOVE</button>}
+                    
+
                 </div>
             </div>
         </div>
