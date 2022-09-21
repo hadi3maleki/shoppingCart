@@ -20,13 +20,14 @@ const cartReducer = (state, action)=>{
             if(!state.selectedItems.find(item => item.id === action.payload.id )){
                 state.selectedItems.push({
                     ...action.payload,
-                    quantity: 1
+                    quantity: 1,
                 })
             }
             return {
                 ...state, 
                 selectedItems: [...state.selectedItems],
-                ...sumItem(state.selectedItems)
+                ...sumItem(state.selectedItems),
+                checkOut: false
             }
 
         case "REMOVE_ITEM":
