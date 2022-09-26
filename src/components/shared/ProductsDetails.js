@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 //context
 import { ProductsContext } from '../../context/ProductsContextProvider';
@@ -7,8 +7,8 @@ import { ProductsContext } from '../../context/ProductsContextProvider';
 import styles from './ProductsDetails.module.css';
 
 const ProductsDetails = (props) => {
-
-    const id = props.match.params.id;
+    const params = useParams();
+    const id = params.id;
     const data = useContext(ProductsContext);
     const product = data[id-1];
     const {title, image, category, description, price} = product;
